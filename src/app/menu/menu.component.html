@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a href="#" class="navbar-brand">
+        <img src="assets/Logo.jpg" height="40" width="50">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle Navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active" data-toggle="collapse" 
+            data-target=".navbar-collapse" *ngIf="!loggedIn">
+                <a routerLink="/home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" data-toggle="collapse" 
+            data-target=".navbar-collapse" *ngIf="loggedIn">
+                <a routerLink="/myblogs" class="nav-link">Blogs</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item right"*ngIf="!loggedIn"
+            routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse">
+                <button class="btn btn-outline-light px-5" routerLink="/login">
+                    Login
+                </button>
+            </li>
+            <li class="nav-item right" *ngIf="loggedIn">
+                <a routerLink="/profile/{{profId}}" class="nav-link">My Profile</a>
+            </li>
+            <li class="nav-item right" *ngIf="loggedIn">
+                <a routerLink="/" class="nav-link" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
